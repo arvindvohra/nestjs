@@ -64,9 +64,7 @@ constructor(
         where: { id }
       }
       
-    );
-
-  
+    );  
 }
 
 
