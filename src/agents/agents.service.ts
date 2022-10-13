@@ -46,9 +46,44 @@ constructor(
   }
 
 
-  update(id: number, updateAgentDto: UpdateAgentDto) {
+  /*update(id: number, updateAgentDto: UpdateAgentDto) {
     return `This action updates a #${id} agent`;
-  }
+  }*/
+
+
+  update(id: number, updateAgentDto: UpdateAgentDto) {
+  
+    return this.agentModel.update(
+      {
+        agentname: updateAgentDto.agentname,
+        email : updateAgentDto.email,
+        country : updateAgentDto.country,
+        updateAt : new Date()
+      },
+      {
+        where: { id }
+      }
+      
+    );
+
+  
+}
+
+
+ /* update(id: number, updateAgentDto: UpdateAgentDto) {
+  
+      let agent : Agent = new Agent();
+
+      agent.agentname = updateAgentDto.agentname;
+    agent.email = updateAgentDto.email;
+
+    console.log(agent);
+
+    console.log(id);
+
+      return this.agentModel.update(agent, { where : {id} });
+    
+  }*/
 
   async remove(id: number) {
 
